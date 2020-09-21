@@ -9,7 +9,7 @@ use Cwd qw/getcwd fast_abs_path/;
 use List::Util 'min';
 use File::Basename 'basename';
 
-my ($length, $path) =
+my ($count, $path) =
   scalar @ARGV >= 2 ? @ARGV
   : scalar @ARGV < 1 ? (1, getcwd)
   :  $ARGV[0] =~ /^\d+/ ? ($ARGV[0], getcwd) : (1, $ARGV[0]);
@@ -28,4 +28,4 @@ use warnings 'uninitialized';
 closedir $dir;
 
 local $, = -t STDOUT ? "\n" : "\0";
-say map { fast_abs_path $_ } @files[0..min(scalar @files, $length)-1];
+say map { fast_abs_path $_ } @files[0..min(scalar @files, $count)-1];
