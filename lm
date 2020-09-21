@@ -12,7 +12,7 @@ use File::Basename 'basename';
 my ($count, $path) =
   scalar @ARGV >= 2 ? @ARGV
   : scalar @ARGV < 1 ? (1, getcwd)
-  :  $ARGV[0] =~ /^\d+/ ? ($ARGV[0], getcwd) : (1, $ARGV[0]);
+  :  $ARGV[0] =~ /^\d+$/ ? ($ARGV[0], getcwd) : (1, $ARGV[0]);
 
 chdir $path;
 opendir my $dir, $path or die "Cannot open Directory: $path";
