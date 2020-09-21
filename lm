@@ -6,14 +6,13 @@ use strict;
 
 # Use fast_abs_path instead of realpath because the former doesn't resolve links
 use Cwd qw/getcwd fast_abs_path/;
-use Scalar::Util qw/looks_like_number/;
 use List::Util 'min';
 use File::Basename 'basename';
 
 my ($length, $path) =
   scalar @ARGV >= 2 ? @ARGV
   : scalar @ARGV < 1 ? (1, getcwd)
-  : looks_like_number $ARGV[0] ? ($ARGV[0], getcwd) : (1, $ARGV[0]);
+  :  $ARGV[0] =~ /^\d+/ ? ($ARGV[0], getcwd) : (1, $ARGV[0]);
 
 chdir $path;
 opendir my $dir, $path or die "Cannot open Directory: $path";
