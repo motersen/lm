@@ -1,0 +1,9 @@
+lm [count] [directory]
+
+Print absolute paths of *count* most recently modified files or directories in *directory*
+
+
+Unless specified:
+
+count = 1
+dir = $PWD
