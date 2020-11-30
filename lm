@@ -27,6 +27,6 @@ use warnings 'uninitialized';
 
 closedir $dir;
 
-local $, = -t STDOUT ? "\n" : "\0";
+local $, = -p STDOUT ? "\0" : "\n";
 local $\ = $,;
 print map { fast_abs_path $_ } @files[0..min(scalar @files, $count)-1];
