@@ -4,8 +4,4 @@ lmf [count] [directory]
 Print absolute paths of <count> most recently modified files or directories in <directory>. If output is piped to another program, paths are separated by null instead of newlines.
 When lm is invoked as lmf it doesn't consider directories.
 
-
-Unless specified:
-
-count = 1
-dir = $PWD
+Both arguments are optional and their order is irrelevant, as long as [count] is a natural number. Lacking arguments, lm searches the current directory for the single most recently modified file (or directory).
