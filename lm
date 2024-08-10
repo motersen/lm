@@ -14,8 +14,8 @@ my ($count, $path) =
   : scalar @ARGV < 1 ? (1, getcwd)
   :  $ARGV[0] =~ /^\d+$/ ? ($ARGV[0], getcwd) : (1, $ARGV[0]);
 
-opendir my $dir, $path or die "Cannot open Directory: $path";
-chdir $path;
+opendir my $dir, <"$path"> or die "Cannot open Directory: $path";
+chdir <"$path">;
 
 no warnings 'uninitialized';
 my @files =
