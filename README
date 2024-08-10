@@ -1,6 +1,8 @@
 lm [count] [directory]
+lmf [count] [directory]
 
 Print absolute paths of <count> most recently modified files or directories in <directory>. If output is piped to another program, paths are separated by null instead of newlines.
+When lm is invoked as lmf it doesn't consider directories.
 
 
 Unless specified:
